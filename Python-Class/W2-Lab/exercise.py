@@ -87,41 +87,33 @@
 # Bonus
 
 def is_weak(pswd):  # worked
-    if len(pswd) < 8: return True
-    else: return False
+    return len(pswd) < 8
 
 def has_upper_case(pswd): # worked
     for i in range(len(pswd)):
-        if pswd[i] == pswd[i].upper():
-            return True
+        if pswd[i] == pswd[i].upper(): return True
     return False
 
 def has_lower_case(pswd): # worked
     for i in range(len(pswd)):
-        if pswd[i] == pswd[i].lower():
-            return True
+        if pswd[i] == pswd[i].lower(): return True
     return False
 
 def has_digit(pswd): # worked
     for i in range(len(pswd)):
-        if pswd[i] in {'1','2','3','4','5','6','7','8','9','0'}:
-            return True
+        if pswd[i] in {'1','2','3','4','5','6','7','8','9','0'}: return True
     return False
 
 def has_special(pswd): # worked 
     for i in range(len(pswd)):
-        if pswd[i] in {'!','@','#','$','%','^','&','*','(',')'}:
-            return True
+        if pswd[i] in {'!','@','#','$','%','^','&','*','(',')'}: return True
     return False
-
+    
 def is_strong(pswd):
-    if not is_weak(pswd) and has_digit(pswd) and has_upper_case(pswd) and has_lower_case(pswd) and has_special(pswd):
-        return True
-    return False
+    return not is_weak(pswd) and has_digit(pswd) and has_upper_case(pswd) and has_lower_case(pswd) and has_special(pswd)
 
 def is_moderate(pswd): # worked
-    if not is_weak(pswd) and not is_strong(pswd): return True
-    return False
+    return not is_weak(pswd) and not is_strong(pswd)
                                                                                                               
 def password_tester(pswd):
     if is_weak(pswd):
@@ -135,8 +127,6 @@ def password_tester(pswd):
 # pswd = "tra" # weak
 # pswd = "PheakTra1234" # moderate
 pswd = "PheakTra1234**" # strong
-
-#  = len(pswd)
 
 print(password_tester(pswd))
 
